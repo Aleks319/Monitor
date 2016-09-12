@@ -7,8 +7,10 @@ import java.text.SimpleDateFormat;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class FileEvent implements IFileEvent {
-	@Override
-	public void onFileAdded(String s) throws IOException {
+	
+////Добавить в проект «монитор» функцию вывода даты создания файла на экран	
+   @Override
+   public void onFileAdded(String s) throws IOException {
         File f = new File(s);
         BasicFileAttributes bfa = Files.readAttributes(f.toPath(), BasicFileAttributes.class);
 
@@ -18,6 +20,8 @@ public class FileEvent implements IFileEvent {
 
 	}
 
+
+//Добавить в проект ф-ю мониторинга более одного файла
     @Override
     public void onFileListAdded(File[] f) throws IOException {
 
@@ -30,6 +34,8 @@ public class FileEvent implements IFileEvent {
         }
     }
 
+
+//Написать код для мониторинга каталога. Выводить на экран предупреждение если в каталог добавляется текстовый файл (любое расширене)
     @Override
     public void onFileExtAdded(File f, String ext) throws IOException {
 
